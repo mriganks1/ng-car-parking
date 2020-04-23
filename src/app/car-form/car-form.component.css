@@ -1,0 +1,20 @@
+.form-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+.car-info {
+  padding: 15px;
+  border: 2px solid #006380;
+  border-radius: 10px;
+  width: fit-content;
+  background-color: #ffffff;
+  min-width: 300px;
+}

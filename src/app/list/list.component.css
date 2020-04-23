@@ -1,0 +1,24 @@
+.taken-slots {
+  margin: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.slot {
+  display: grid;
+  grid-template-columns: 0.3fr 2fr 1fr 1fr 1fr 0.5fr;
+}
+.slot.header {
+  background-color: #333333;
+  color: #ffffff;
+  font-weight: bold;
+  position: sticky;
+  top: 0px;
+  padding: 5px 10px;
+}
+.slot.body > div {
+  display: flex;
+  align-items: center;
+  padding: 0px 10px 5px;
+  margin-top: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}

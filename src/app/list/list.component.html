@@ -1,0 +1,40 @@
+<!-- <p>{{ slots.totalSlots$ | async }}</p> -->
+
+<div class="taken-slots">
+  <div class="slot header">
+    <div><p>Sl. No.</p></div>
+    <div><p>Car Number</p></div>
+    <div><p>Color</p></div>
+    <div><p>Slot number</p></div>
+    <div><p>Date Time</p></div>
+  </div>
+  <div
+    class="slot body"
+    *ngFor="let slot of slots.filledSlots$ | async as list; index as i"
+    @slideInOut
+  >
+    <div>
+      <p>{{ i + 1 }}</p>
+    </div>
+    <div>
+      <p>{{ slot.carNumber }}</p>
+    </div>
+    <div>
+      <p>{{ slot.carColor }}</p>
+    </div>
+    <div>
+      <p>{{ slot.slotNumber }}</p>
+    </div>
+    <div>
+      <p>{{ slot.dateTaken | date: "dd MMM yy, hh:mm:ss" }}</p>
+    </div>
+    <div>
+      <button
+        class="action-button yellow"
+        (click)="slots.freeSlot(slot.slotNumber)"
+      >
+        Remove
+      </button>
+    </div>
+  </div>
+</div>

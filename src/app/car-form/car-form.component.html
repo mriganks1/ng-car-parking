@@ -1,0 +1,47 @@
+<div class="form-wrapper">
+  <form [formGroup]="carForm" class="car-info">
+    <p class="title">Enter car info</p>
+    <div class="input-wrapper">
+      <input
+        type="text"
+        class="border-input"
+        placeholder="Number plate"
+        formControlName="number"
+        [ngClass]="{
+          error:
+            carForm.controls.number.touched && carForm.controls.number.invalid
+        }"
+      />
+      <label>Registration number</label>
+    </div>
+    <div class="input-wrapper">
+      <select
+        class="border-input"
+        placeholder="Select"
+        formControlName="color"
+        [ngClass]="{
+          error:
+            carForm.controls.color.touched && carForm.controls.color.invalid
+        }"
+      >
+        <option value="" disabled selected>Select</option>
+        <option *ngFor="let color of carColors" [value]="color">{{
+          color
+        }}</option>
+      </select>
+      <label>Color</label>
+    </div>
+    <div class="form-action">
+      <button class="action-button red" (click)="closeForm.emit(false)">
+        Cancel
+      </button>
+      <button
+        class="action-button green"
+        [disabled]="carForm.invalid"
+        (click)="saveCar()"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

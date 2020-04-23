@@ -1,1 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+}
+
+body {
+  margin: 0px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 1rem;
+}
+
+.input-wrapper label {
+  font-size: 0.75rem;
+}
+
+.border-input {
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  outline: none;
+  background-color: transparent;
+}
+
+.border-input.error {
+  border-color: red;
+}
+
+.border-input.error + label {
+  color: red;
+}
+
+.border-input:hover,
+.border-input:focus {
+  border-color: #0085c5;
+}
+
+.border-input:hover + label,
+.border-input:focus + label {
+  color: #0085c5;
+}
+
+.form-action {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+}
+
+.action-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border: 2px solid #006380;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1rem;
+  color: #006380;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+.action-button.green {
+  background-color: #55f05a;
+  border-color: #55f05a;
+  color: #000000;
+}
+.action-button.red {
+  background-color: #ee7878;
+  border-color: #ee7878;
+  color: #000000;
+}
+.action-button.yellow {
+  background-color: #ffd14e;
+  border-color: #ffd14e;
+  color: #000000;
+}
+.action-button:disabled {
+  background-color: lightgray !important;
+  color: grey !important;
+  border-color: lightgray !important;
+  pointer-events: none;
+}
