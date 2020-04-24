@@ -1,4 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  AfterViewInit,
+  ViewChildren
+} from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { SlotService } from "../slot.service";
 
@@ -18,7 +25,7 @@ export const Colors: string[] = [
   templateUrl: "./car-form.component.html",
   styleUrls: ["./car-form.component.css"]
 })
-export class CarFormComponent implements OnInit {
+export class CarFormComponent implements OnInit, AfterViewInit {
   constructor(private slots: SlotService) {}
   @Output("closeForm") closeForm: EventEmitter<boolean> = new EventEmitter(
     false
@@ -28,8 +35,13 @@ export class CarFormComponent implements OnInit {
     number: new FormControl("", [Validators.required]),
     color: new FormControl("", [Validators.required])
   });
+  @ViewChildren("input") numberInput;
 
   ngOnInit() {}
+
+  ngAfterViewInit(): void {
+    this.numberInput.first.nativeElement.focus();
+  }
 
   saveCar() {
     this.closeForm.emit(false);

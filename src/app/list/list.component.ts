@@ -2,6 +2,8 @@ import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { SlotService } from "../slot.service";
 
 import { trigger, transition, animate, style } from "@angular/animations";
+import { FormControl } from "@angular/forms";
+import { Colors } from "../car-form/car-form.component";
 
 export interface Slot {
   carNumber: string;
@@ -56,6 +58,9 @@ export class ListComponent implements OnInit {
   constructor(public slots: SlotService) {}
 
   @Output("addCar") addCar: EventEmitter<boolean> = new EventEmitter(false);
+  numberSearch: FormControl = new FormControl("");
+  colorSearch: FormControl = new FormControl(null);
+  colorOptions: string[] = Colors;
 
   ngOnInit() {}
 }

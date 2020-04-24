@@ -77,7 +77,7 @@ export class SlotService {
   fillTakenSlots(num) {
     const len = TakenSlots.length;
     for (let i = 0; i < num; i++) {
-      const slot = { ...TakenSlots[i % len] };
+      const slot = TakenSlots[i % len];
       this.takenSlots[i] = slot;
       this.slotNumbersAvailable = this.slotNumbersAvailable.filter(
         x => x !== slot.slotNumber
